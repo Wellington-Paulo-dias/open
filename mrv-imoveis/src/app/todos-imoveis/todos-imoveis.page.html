@@ -1,0 +1,108 @@
+<ion-header>
+    <ion-toolbar>
+      
+      <ion-col size="3">
+        <ion-back-button class="back-button" (click)="voltar()" text=""></ion-back-button>
+      </ion-col>
+  
+      <ion-col>
+        <ion-img class="logoMRV" src="assets/imagens/logo-mrv.png" (click)="home()"></ion-img>
+      </ion-col>
+      
+      <ion-col size="3">
+        <ion-buttons class="nav-button right">
+          <ion-menu-button class="icon-navbar" slot="end"></ion-menu-button>
+        </ion-buttons>
+      </ion-col>
+      
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <section class="todos-imoveis">
+    <div class="titulo">
+      <h2 class="h-linha laranja">
+        Todos os imóveis
+      </h2>
+    </div>
+    <div *ngIf="semImoveis" class="semImoveis">
+      <h2>Não existem imóveis próximos a você!</h2>
+    </div>
+    <div *ngIf="semImoveisFiltro" class="semImoveis">
+      <h2>Não existem imóveis para esse filtro.</h2>
+    </div>
+    <div *ngFor="let imovel of todosImoveis" class="lista-imoveis">
+      <div class="imoveis" (click)="internaImoveis(imovel.IdImovel)">       
+        <div class="{{'imovel ' + imovel.ClasseStatusImovel}}">
+          <div class="img-imovel">
+            <span *ngFor="let ribbon of imovel.Ribbons" class="{{ribbon.CssClass}}">{{ribbon.Texto}}</span>
+            <ion-img class="img" src={{imovel.CaminhoImagemCapa}} alt={{imovel.AltImagemCapa}}></ion-img>
+            <span *ngFor="let ribbon of imovel.Ribbons" class="{{ribbon.CssClass}}">{{ribbon.Texto}}</span>
+            <ion-icon [class]="imovel.Favorito ? 'favoritado icon-favorito hydrated' : 'icon-favorito hydrated'" src="assets/icons/favorito-ativo.svg" 
+            (click)="Favoritar(imovel.IdImovel); $event.stopPropagation();"></ion-icon>
+            <div class="distancia"><span>{{imovel.Distancia}}</span></div>
+          </div>
+
+          <div class="txt-thumb">
+              <h2 class="{{'h-linha localizacao ' + imovel.ClasseStatusImovel}}"><strong>{{imovel.NomeImovel}}</strong>{{imovel.Cidade}} - {{imovel.EstadoSigla}}</h2>
+              <h3 class="nome">{{imovel.NomeCompletoImovel}}</h3>
+              <ul class="lista-tags">
+                <li>{{imovel.StatusImovel}}</li>
+                <li>{{imovel.NumeroQuartos}}</li>
+              </ul>
+              <ul class="lista-extras" *ngFor="let selo of imovel.Selos">
+                <li>
+                  <hr [ngStyle]="{'background' : selo.Cor}" />
+                  {{selo.Selo}}
+                </li>
+              </ul>
+              <ul class="lista-icones">
+                <li *ngFor="let diferencial of imovel.Diferenciais">
+                  <img src={{diferencial.Icone}} alt="{{diferencial.Titulo}}" />
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</ion-content>
+
+<ion-footer id="bloco-filtro">
+  <ul class="select-category" id="filtro" data-value="false">
+    <li class="">
+      <ion-button icon-end class="btn-filtro" data-value="pre-lancamento" (click)="Filtrar($event)">
+        <span class="legenda">pré-lançamento</span>
+        <img src="assets/imagens/filtro/pre-lancamento.jpg" alt="Pre Lançamento" />
+      </ion-button>
+    </li>
+    <li class="">
+      <ion-button icon-end class="btn-filtro" data-value="lancamento" (click)="Filtrar($event)">
+        <span class="legenda">Lançamentos</span>
+        <img src="assets/imagens/filtro/lancamentos.jpg" alt="Lançamento" />
+      </ion-button>
+    </li>
+    <li class="">
+      <ion-button icon-end class="btn-filtro" data-value="em-construcao" (click)="Filtrar($event)">
+        <span class="legenda">em construção</span>
+        <img src="assets/imagens/filtro/em-construcao.jpg" alt="Em construção" />
+      </ion-button>
+    </li>
+    <li class="">
+      <ion-button icon-end class="btn-filtro" data-value="pronto" (click)="Filtrar($event)">
+        <span class="legenda">prontos</span>
+        <img src="assets/imagens/filtro/prontos.jpg" alt="Prontos" />
+      </ion-button>
+    </li>
+    <li class="">
+      <ion-button icon-end class="btn-filtro" data-value="todos" (click)="Filtrar($event)">
+        <span class="legenda">todos</span>
+        <img src="assets/imagens/filtro/todos.jpg" alt="Todos" />
+      </ion-button>
+    </li>
+  </ul>
+  <button ion-button icon-end class="filtrar-imoveis" (click)="MostraFiltro()">
+    <ion-icon name="options" class="icon-filtro"></ion-icon>
+  </button>
+</ion-footer>

@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-col size="3">
+      <ion-back-button class="back-button" text="" (click)="voltar()"></ion-back-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-img class="logoMRV" src="assets/imagens/logo-mrv.png" (click)="home()"></ion-img>
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-buttons class="nav-button right">
+        <ion-menu-button class="icon-navbar" slot="end"></ion-menu-button>
+      </ion-buttons>
+    </ion-col>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div id="map_canvas">
+  </div>
+  <div class="lista-imoveis">
+    <div class="btn-lista">
+      <ion-button id="verMais" class="ver-lista" (click)="listaImoveis()">VER LISTA</ion-button>
+    </div>
+    <div id="imoveis" class="imoveis">
+      <div *ngIf="semImoveis" style="padding: 0 0 20px 15px;">
+        <h2>Não encontramos nenhum imovel próximo a você.</h2>
+      </div>
+      <div *ngFor="let imovel of imoveisProximos" class="{{'imovel ' + imovel.ClasseStatusImovel}}">
+        <div class="img-imovel">
+          <span *ngFor="let ribbon of imovel.Ribbons" class="{{ribbon.CssClass}}">{{ribbon.Texto}}</span>
+          <ion-img class="img" src={{imovel.CaminhoImagemCapa}} alt={{imovel.AltImagemCapa}} (click)="internaImoveis(imovel.IdImovel)"></ion-img>
+          <ion-icon [class]="imovel.Favorito ? 'favoritado icon-favorito hydrated' : 'icon-favorito hydrated'" src="assets/icons/favorito-ativo.svg" (click)="Favoritar(imovel.IdImovel); $event.stopPropagation();"></ion-icon>
+          <div class="distancia"><span>{{imovel.Distancia}}</span></div>
+        </div>
+        <div class="txt-thumb">
+          <h2 class="{{'h-linha localizacao ' + imovel.ClasseStatusImovel}}"><strong>{{imovel.NomeImovel}}</strong>{{imovel.Cidade}}
+            - {{imovel.EstadoSigla}}</h2>
+          <h3 class="nome">{{imovel.NomeCompletoImovel}}</h3>
+          <ul class="lista-tags">
+            <li>{{imovel.StatusImovel}}</li>
+            <li>{{imovel.NumeroQuartos}}</li>
+          </ul>
+          <ul class="lista-extras" *ngFor="let selo of imovel.Selos">
+            <li>
+              <hr [ngStyle]="{'background' : selo.Cor}" />
+              {{selo.Selo}}
+            </li>
+          </ul>
+          <ul class="lista-icones">
+            <li *ngFor="let diferencial of imovel.Diferenciais">
+              <img src={{diferencial.Icone}} alt="{{diferencial.Titulo}}" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,138 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="nav-button">
+      <ion-menu-button class="icon-navbar" slot="end"></ion-menu-button>
+    </ion-buttons>
+    <ion-img class="logoMRV" src="assets/imagens/logo-mrv.png" (click)="scrollTo()"></ion-img>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content #content>
+
+  <ion-slides [options]="slideVitrineOpts" pager="true">
+    <ion-slide (click)="acaoVitrine(teste.tipoAcao, teste.urlAcao)" *ngFor="let teste of urlVitrines">
+      <img src={{teste.urlImagem}} />
+    </ion-slide>
+  </ion-slides>
+
+  <section class="imoveis-proximos">
+    <div class="titulo">
+      <h2 class="h-linha laranja">
+        IMÓVEIS PRÓXIMOS A VOCÊ
+      </h2>
+      <button class="ver-mais" ion-button color="light" (click)="todosImoveis()">
+        <ion-icon class="seta" name="ios-arrow-forward"></ion-icon> Ver mais
+      </button>
+    </div>
+    <ion-slides #Slider class="slider" [options]="slideOpts">
+      <ion-spinner name="crescent" *ngIf="!removerLoading"></ion-spinner>
+      <div *ngIf="semImoveis" class="semImoveis">
+        <h2 (click)="navegar()">Não encontramos nenhum imóvel, você pode tentar buscar mais imóveis aqui.</h2>
+      </div>
+      <ion-slide *ngFor="let imovel of imoveis.Proximos">
+        <div class="lista-imoveis">
+          <div class="imoveis">
+            <div class="{{'imovel ' + imovel.ClasseStatusImovel}}">
+              <div class="img-imovel">
+                <ion-img class="img" src={{imovel.CaminhoImagemCapa}} alt={{imovel.AltImagemCapa}} (click)="internaImoveis(imovel.IdImovel)"></ion-img>
+                <span *ngFor="let ribbon of imovel.Ribbons" class="{{ribbon.CssClass}}">{{ribbon.Texto}}</span>
+                <ion-icon [class]="imovel.Favorito ? 'favoritado icon-favorito hydrated' : 'icon-favorito hydrated'"
+                  src="assets/icons/favorito-ativo.svg"
+                  (click)="Favoritar(imovel.IdImovel); $event.stopPropagation();"></ion-icon>
+                <div class="distancia"><span>{{imovel.Distancia}}</span></div>
+              </div>
+
+              <div class="txt-thumb" (click)="internaImoveis(imovel.IdImovel)">
+                <h2 class="{{'h-linha localizacao ' + imovel.ClasseStatusImovel}}"><strong>{{imovel?.Endereco.Bairro}}
+                  </strong>{{imovel.Cidade}}
+                  - {{imovel.EstadoSigla}}</h2>
+                <h3 class="nome">{{imovel.NomeCompletoImovel}}</h3>
+                <ul class="lista-tags">
+                  <li>{{imovel.StatusImovel}}</li>
+                  <li>{{imovel.NumeroQuartos}}</li>
+                </ul>
+                <div class="min-height-extras">
+                  <ul class="lista-extras" *ngFor="let selo of imovel.Selos">
+                    <li>
+                      <hr [ngStyle]="{'background' : selo.Cor}" />
+                      {{selo.Selo}}
+                    </li>
+                  </ul>
+                </div>
+
+                <ul class="lista-icones">
+                  <li *ngFor="let diferencial of imovel.Diferenciais">
+                    <img src={{diferencial.Icone}} alt="{{diferencial.Titulo}}" />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </section>
+
+  <section class="imoveis-cidades">
+    <div class="titulo">
+      <h2 class="h-linha laranja">
+        {{cidade}}
+      </h2>
+    </div>
+
+    <ion-slides #Slider2 class="slider" [options]="slideOpts">
+      <ion-spinner name="crescent" *ngIf="!removerLoadingCidade"></ion-spinner>
+      <div *ngIf="semImoveis" class="semImoveis">
+        <h2>Não encontramos nenhum imovel, você pode tentar buscar mais imoveis<a href="/buscar"> aqui</a></h2>
+      </div>
+      <ion-slide *ngFor="let imovel of imoveis.Cidades" (click)="internaImoveis(imovel.IdImovel)">
+        <div class="lista-imoveis">
+          <div class="imoveis">
+            <div class="{{'imovel ' + imovel.ClasseStatusImovel}}" data-id="{{imovel.IdImovel}}">
+
+              <div class="img-imovel">
+                <span *ngFor="let ribbon of imovel.Ribbons" class="{{ribbon.CssClass}}">{{ribbon.Texto}}</span>
+                <ion-img class="img" src={{imovel.CaminhoImagemCapa}} alt={{imovel.AltImagemCapa}}></ion-img>
+                <span *ngFor="let ribbon of imovel.Ribbons" class="{{ribbon.CssClass}}">{{ribbon.Texto}}</span>
+                <ion-icon [class]="imovel.Favorito ? 'favoritado icon-favorito hydrated' : 'icon-favorito hydrated'"
+                  src="assets/icons/favorito-ativo.svg"
+                  (click)="Favoritar(imovel.IdImovel); $event.stopPropagation();"></ion-icon>
+              </div>
+
+              <div class="txt-thumb">
+                <h2 class="{{'h-linha localizacao ' + imovel.CorClasseNome}}"><strong>{{imovel.NomeImovel}}
+                  </strong>{{imovel.Cidade}}
+                  - {{imovel.EstadoSigla}}</h2>
+                <h3 class="nome">{{imovel.NomeCompletoImovel}}</h3>
+                <ul class="lista-tags">
+                  <li>{{imovel.StatusImovel}}</li>
+                  <li>{{imovel.NumeroQuartos}}</li>
+                </ul>
+                <div class="min-height-extras">
+                  <ul class="lista-extras" *ngFor="let selo of imovel.Selos">
+                    <li>
+                      <hr [ngStyle]="{'background' : selo.Cor}" />
+                      {{selo.Selo}}
+                    </li>
+                  </ul>
+                </div>
+                <ul class="lista-icones">
+                  <li *ngFor="let diferencial of imovel.Diferenciais">
+                    <img src={{diferencial.Icone}} alt="{{diferencial.Titulo}}" />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </section>
+
+  <!-- CHAT ANTIGO -->
+  <!-- <div class="img-chat" title="chat" id="chat" (click)="modalChat()"></div> -->
+
+  <!-- CHAT ATRAVÉS DO WHATSAPP -->
+  <div class="img-chat" (click)="openWhatsMRV()"></div>
+  
+</ion-content>

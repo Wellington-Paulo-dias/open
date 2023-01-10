@@ -1,0 +1,138 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+
+/** Ionic CSS Variables **/
+:root {
+  /** primary **/
+  --ion-color-primary: #58595b;
+  --ion-color-primary-rgb: 88, 89, 91;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #58595b;
+  --ion-color-primary-tint: #58595b;
+
+  /** secondary **/
+  --ion-color-secondary: #0cd1e8;
+  --ion-color-secondary-rgb: 12, 209, 232;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #0bb8cc;
+  --ion-color-secondary-tint: #24d6ea;
+
+  /** tertiary **/
+  --ion-color-tertiary: #7044ff;
+  --ion-color-tertiary-rgb: 112, 68, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #633ce0;
+  --ion-color-tertiary-tint: #7e57ff;
+
+  /** success **/
+  --ion-color-success: #10dc60;
+  --ion-color-success-rgb: 16, 220, 96;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #0ec254;
+  --ion-color-success-tint: #28e070;
+
+  /** warning **/
+  --ion-color-warning: #ffce00;
+  --ion-color-warning-rgb: 255, 206, 0;
+  --ion-color-warning-contrast: #ffffff;
+  --ion-color-warning-contrast-rgb: 255, 255, 255;
+  --ion-color-warning-shade: #e0b500;
+  --ion-color-warning-tint: #ffd31a;
+
+  /** danger **/
+  --ion-color-danger: #f04141;
+  --ion-color-danger-rgb: 245, 61, 61;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d33939;
+  --ion-color-danger-tint: #f25454;
+
+  /** dark **/
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34, 34, 34;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
+
+  /** medium **/
+  --ion-color-medium: #989aa2;
+  --ion-color-medium-rgb: 152, 154, 162;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #86888f;
+  --ion-color-medium-tint: #a2a4ab;
+
+  /** light **/
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244, 244, 244;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+
+  /** Custom Colors **/
+  /** teste **/
+  --ion-color-teste-base: #000;
+  --ion-color-teste-base-rgb: 105,187,123;
+  --ion-color-teste-contrast: #fff;
+  --ion-color-teste-contrast-rgb: 255,255,255;
+  --ion-color-teste-shade: #aaa;
+  --ion-color-teste-tint: #000;
+
+ 
+  --ion-font-family: bebas_neue_regularregular, bebas_neuebold, OpenSans-SemiBold;
+}
+
+.ion-color-teste {
+  --ion-color-base: #fff;
+  --ion-color-base-rgb: 15,15,15;
+  --ion-color-contrast: rgb(26, 161, 82);
+  --ion-color-contrast-rgb: 26, 161, 82;
+  --ion-color-shade: #aaa;
+  --ion-color-tint: #000;
+}
+ 
+@font-face {
+  font-family: 'bebas_neuebold';
+  src: url('../assets/fonts/bebasneue_bold-webfont.eot');
+  src: url('../assets/fonts/bebasneue_bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/bebasneue_bold-webfont.woff') format('woff'),
+       url('../assets/fonts/bebasneue_bold-webfont.ttf') format('truetype'),
+       url('../assets/fonts/bebasneue_bold-webfont.svg#bebas_neue_bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'bebasneue_regularregular';
+  src: url('../assets/fonts/bebasneue_regular-webfont.eot');
+  src: url('../assets/fonts/bebasneue_regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/bebasneue_regular-webfont.woff') format('woff'),
+       url('../assets/fonts/bebasneue_regular-webfont.ttf') format('truetype'),
+       url('../assets/fonts/bebasneue_regular-webfont.svg#bebas_neue_regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face { 
+  font-family: 'OpenSans-SemiBold';
+  src: url('../assets/fonts/OpenSans-SemiBold.eot');
+  src: url('../assets/fonts/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/OpenSans-SemiBold.woff') format('woff'),
+       url('../assets/fonts/OpenSans-SemiBold.ttf') format('truetype'),
+       url('../assets/fonts/OpenSans-SemiBold.svg#OpenSans-SemiBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+
+

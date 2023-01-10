@@ -1,0 +1,19 @@
+.modal-chat {
+    padding: 53px 0 15px 0;
+    .topo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding:0 15px 5px 15px;
+        z-index: 99;
+        .close {
+            font-size: 30px;
+            margin-top: 15px;
+        }
+    }
+    iframe {
+        width: 100%; 
+    }
+}

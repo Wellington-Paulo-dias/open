@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-col size="3">
+      <ion-back-button class="back-button" defaultHref="" text=""></ion-back-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-img class="logoMRV" src="assets/imagens/logo-mrv.png" (click)="home()"></ion-img>
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-buttons class="nav-button right">
+        <ion-menu-button class="icon-navbar" slot="end"></ion-menu-button>
+      </ion-buttons>
+    </ion-col>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <section class="subsidio-mcmv">
+    <ion-grid>
+      <ion-row>
+
+        <ion-col size="12">
+          <div class="titulo">
+            <h2 class="h-linha laranja">
+              Faça simulação do seu subsídio
+            </h2>
+          </div>
+        </ion-col>
+        <ion-col size="12" class="form form-subsidio">
+          <ion-item class="input">
+            <ion-input id="money" max="1.000.000" inputmode="numeric" name="renda" [(ngModel)]="renda"
+              placeholder="Informe sua renda" (ionChange)="formatReal()">{{renda}}</ion-input>
+          </ion-item>
+          <ion-item class="input">
+            <ion-label class="label">Cidade:</ion-label>
+            <ion-select class="select" value="Cidade" ok-text="ok" name="cidadeEscolhida" cancel-text="cancelar"
+              [(ngModel)]="cidadeEscolhida" (ionChange)="PreencherCidade()">
+              <ion-select-option *ngFor="let cidade of cidades" [value]="cidade"> {{cidade.nome}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item class="input input-check">
+            <ion-label class="label">Mais de um comprador ou dependente</ion-label>
+            <ion-checkbox class="check" slot="start" name="multiploCompradorDependente"
+              checked="{{multiploCompradorDependente}}" [(ngModel)]="multiploCompradorDependente"></ion-checkbox>
+          </ion-item>
+          <ion-button class="enviar" (click)="CalcularSubsidio()" expand="full">Calcular</ion-button>
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-item class="subsidio">
+            <ion-img class="img" src="assets/imagens/mcmv.png"></ion-img>
+            <div class="resultado">
+              <span class="valor">{{valor}}</span>
+              <p>
+                Valor limite do imovel: <span class="valor-limite"> {{valorLimiteCidadeTemp}}</span><br>
+                Cidade selecionada: <span class="local"> {{cidadeEscolhidaNomeTemp}}</span>
+              </p>
+            </div>
+          </ion-item>
+
+          <p class="obs"><span>*</span> Valores aproximados. Consulte condições. <br>Valores sujeitos a análise e alteração sem aviso prévio.</p>
+
+          <ion-img (click)="modalAtendimento()" class="chat" src="assets/imagens/chat.png"></ion-img>
+
+        </ion-col>
+
+        <ion-col size="12">
+          <div class="txt-site">
+            <p>
+              A MRV tem o plano que vai te dar uma força para conquistar sua independência do aluguel. Com renda
+              familiar a partir de R$ 1.500,00, você já pode aproveitar as vantagens.
+            </p>
+            <p>
+              Com o Minha Casa Minha Vida você pode ganhar subsídio de até R$ 47,5 mil, ter a menor taxa de juros do
+              mercado, pagar em até 360 meses, ter seguro-desemprego e ainda usar seu FGTS!
+            </p>
+            <p>
+              A MRV é a construtora que mais vende e entrega apartamentos pelo Minha Casa Minha Vida. Fale com nossos
+              atendentes e veja como é possível realizar este sonho.
+            </p>
+          </div>
+          <div class="diferenciais-mcmv">
+            <p>
+              Ao comprar seu Minha Casa Minha Vida na MRV, você possui:
+            </p>
+            <div class="diferenciais">
+              <div class="linha">
+                <div class="item">
+                  <ion-icon class="icone casa" src="assets/icons/subsidio-casa.svg"></ion-icon>
+                  <p>
+                    Subsidio<br> de até<br> R$ 47.500
+                  </p>
+                </div>
+                <div class="item">
+                  <ion-icon class="icone dinheiro" src="assets/icons/menor-taxa-de-juros.svg"></ion-icon>
+                  <p>
+                    A menor taxa de juros<br> do mercado
+                  </p>
+                </div>
+                <div class="item">
+                  <ion-icon class="icone calendario" src="assets/icons/oportunidade-para-pagar.svg"></ion-icon>
+                  <p>
+                    Oportunidade<br> de pagar <br>em até<br> 360 meses
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+
+  </section>
+</ion-content>

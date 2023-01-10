@@ -1,0 +1,40 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu menu-id="menuLateral" type="overlay">
+
+      <ion-header>
+        <ion-img src="assets/imagens/Imagem-menu.png"></ion-img>
+      </ion-header>
+
+      <ion-content>
+        <ion-list class="menu">
+          <ion-menu-toggle *ngFor="let p of appPages">
+            <ion-item class="links" (click)="navega(p.url)">
+              <ion-icon class="icone {{p.class}}" slot="start" src="{{p.icon}}"></ion-icon>
+              <ion-label>{{p.title}}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle>
+            <ion-item class="links" (click)="redesSociais(5)">
+              <ion-icon class="icone i-meuMRV" src="assets/icons/meu-mrv-01.svg"></ion-icon>
+              <ion-label>Sou cliente</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          
+          <ion-item class="redes-sociais">
+            <ion-icon class="icone-sociais" name="logo-facebook" (click)="redesSociais(1)"></ion-icon>
+            <ion-icon class="icone-sociais" name="logo-twitter" (click)="redesSociais(2)"></ion-icon>
+            <ion-icon class="icone-sociais" name="logo-instagram" (click)="redesSociais(3)"></ion-icon>
+            <ion-icon class="icone-sociais" name="logo-youtube" (click)="redesSociais(4)"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+  <ion-icon id="chat-flutuante" class="chat-flutuante" src="assets/icons/chat-pre.svg" (click)="openWhatsMRV()"></ion-icon>
+  <!-- <ion-icon id="chat-flutuante" class="chat-flutuante" src="assets/icons/chat-pre.svg" (click)="modalChat()"></ion-icon> -->
+
+</ion-app>

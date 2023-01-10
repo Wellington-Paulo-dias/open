@@ -1,0 +1,55 @@
+.modal-ficha-tecnica {
+    padding: 15px;
+    .topo {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #fff;
+        padding-bottom: 5px;
+        z-index: 99;
+        .close {
+            font-size: 30px;
+            margin-top: 15px;
+        }
+        h2 {
+            margin-top: 10px;
+            padding-left: 10px;
+        } 
+    }
+    .content {
+        margin-top: 90px;
+        .txt-ficha {
+            padding: 0 10px 10px 18px;
+
+            li {
+                position: relative;
+                margin-bottom: 8px;
+                font-family: sans-serif;
+                font-size: 14px;
+                line-height: 1.4;
+                &:before {
+                    width: 5px;
+                    height: 5px;
+                    position: absolute;
+                    left: -12px;
+                    top: 9px;
+                    background: #9acef4;
+                    content: '';
+                }
+                span {
+                    font-family: sans-serif;
+                    font-size: 14px;
+                }
+                strong {
+                    font-family:"OpenSans-SemiBold";
+                    font-size: 15px;
+                }
+            }
+        }
+    
+        .valoraproximado { 
+            font-size: 10px;
+        }
+    }
+
+}

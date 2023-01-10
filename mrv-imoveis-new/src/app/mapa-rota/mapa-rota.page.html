@@ -1,0 +1,19 @@
+<ion-content>
+  <section class="mapa-rota">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button style="display: inline-flex!important;" text="Voltar" color="dark" (click)="voltar()">
+          </ion-back-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <div id="map_canvas"></div>
+    <div class="tracar-rota">
+      <div class="btn-rota" (click)="abrirApp()">
+        <ion-icon class="icon-rota" src="assets/icons/location-01.svg"></ion-icon>
+        <span>Traçar rota</span>
+      </div>
+    </div>
+  </section>
+</ion-content>

@@ -1,0 +1,79 @@
+<ion-content padding>
+  <div class="topo">
+    <ion-icon class="close" name="close" (click)="fechaModal()"></ion-icon>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="titulo">
+          <h2 class="h-linha laranja">
+            Envie uma mensagem
+          </h2>
+        </div>
+        <div class="txt-site">
+          <p>
+            Deixe o seu contato conosco. Em breve um atendente MRV entrará em contato você.
+          </p>
+        </div>
+        <div class="form">
+          <div class="input">
+            <ion-input id="contatoNome" name="contatoNome" [(ngModel)]="contatoNome" required type="text"
+              placeholder="Nome"></ion-input>
+          </div>
+          <div class="input">
+            <ion-input id="contatoEmail" name="contatoEmail" [(ngModel)]="contatoEmail" required type="text"
+              placeholder="E-mail"></ion-input>
+          </div>
+          <div class="input">
+            <ion-input id="ddd" name="contatoDDD" [(ngModel)]="contatoDDD" required type="number" placeholder="DDD"
+              maxlength="3"></ion-input>
+            <ion-label> - </ion-label>
+            <ion-input id="celular" name="contatoCelular" [(ngModel)]="contatoCelular" required type="number"
+              placeholder="Celular" maxlength="10"></ion-input>
+          </div>
+          <div class="input">
+            <ion-label class="label">Estado:</ion-label>
+            <ion-select id="user_estado" [selectedText]="estadoSelecionado?.nome" class="select" value="Estado" ok-text="ok" name="estadoSelecionado" cancel-text="cancelar" [(ngModel)]="estadoSelecionado" (ionCancel)="LimparCampoEstado()" (ionChange)="carregaCidade()">
+              <ion-select-option [value]="estado" *ngFor="let estado of estados">{{estado.nome}}</ion-select-option>
+            </ion-select>
+          </div>
+          <div class="input">
+            <ion-label class="label">Cidade:</ion-label>
+            <ion-select id="user_cidade" [selectedText]="cidadeSelecionada?.nome" class="select" value="Cidade" ok-text="ok" name="cidadeSelecionada" cancel-text="cancelar" [(ngModel)]="cidadeSelecionada" (ionCancel)="LimparCampoCidade()" >
+              <ion-select-option [value]="cidade" *ngFor="let cidade of cidades" >{{cidade.nome}}</ion-select-option>
+            </ion-select>
+          </div>
+          <div class="input">
+            <textarea id="contatoMensagem" name="contatoMensagem" [(ngModel)]="contatoMensagem"></textarea>
+          </div>
+          <div id="check" class="list-check">
+            <div>
+              <ion-label class="label m">Receber Mensagem por:</ion-label>
+            </div>
+            <ion-col size="4">
+              <ion-label class="label">E-mail</ion-label>
+              <ion-toggle class="check" name="email" [(ngModel)]="newsletter.email" color="primary"></ion-toggle>
+            </ion-col>
+            <ion-col size="4">
+              <ion-label class="label">Telefone</ion-label>
+              <ion-toggle class="check" name="telefone" [(ngModel)]="newsletter.telefone" color="primary"></ion-toggle>
+            </ion-col>
+            <ion-col size="4">
+              <ion-label class="label">Whatsapp</ion-label>
+              <ion-toggle class="check" name="whatsapp" [(ngModel)]="newsletter.whatsapp" color="primary"></ion-toggle>
+            </ion-col>
+          </div>
+          <div class="input check">
+            <ion-checkbox checked="true" slot="start" id="termo" (click)="verificandoCheck()"></ion-checkbox>
+            <span class="link" slot="end" (click)="termo()">Aceito receber contato da MRV, de acordo com a política de
+              privacidade</span>
+          </div>
+          <div>
+            <ion-input class="enviar" id="enviaFormMensagem" disabled="false" type="submit" value="Enviar"
+              (click)="EnviarMensagem()"></ion-input>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

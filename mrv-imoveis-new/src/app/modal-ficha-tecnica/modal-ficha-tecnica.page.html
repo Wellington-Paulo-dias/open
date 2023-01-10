@@ -1,0 +1,30 @@
+<ion-content>
+  <section class="modal-ficha-tecnica">
+    <div class="topo">
+      <ion-icon class="close" name="close" (click)="fechaModal()"></ion-icon>
+      <h2 class="h-simples">
+        Ficha tecnica
+      </h2>
+    </div>
+    <div class="content">
+      <ul class="txt-ficha">
+        <li><strong>Produto: </strong> <span>{{imovel.NomeProduto}}</span></li>
+        <li><strong>Endereço: </strong> <span>{{imovel.Endereco.Logradouro}} ({{imovel.Endereco.Bairro}} -
+            {{imovel.Endereco.Cidade}}/{{imovel.Endereco.Uf}})</span></li>
+        <li><strong>Área Total do Terreno:</strong> {{imovel.AreaTerreno}} m²</li>
+        <li><strong>Área de Uso Comum:</strong> {{imovel.AreasComuns.join(', ')}}</li>
+        <li><strong>{{imovel.DescricaoEstacionamento}}</strong></li>
+        <li>
+          <strong>Tipologia das unidades:</strong><br/>
+          <span *ngFor="let quarto of imovel.Quartos">
+            {{quarto.rotulo}} <strong>Área Total:</strong> {{quarto.areaTotal}}m²*<br/>
+          </span>
+          *Área real privativa acessória com valores aproximados
+        </li>
+        <li><strong>Proximidade:</strong> {{imovel.PontosDeReferencia}}</li>
+        <li><strong>Realização:</strong> {{imovel.ConstrutoraResponsavel}}</li>
+        <li><strong>Registro de Incorporação: </strong> {{imovel.RegistroIncorporacao}}</li>
+      </ul>
+    </div>
+  </section>
+</ion-content>

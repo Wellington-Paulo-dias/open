@@ -1,0 +1,67 @@
+#map_canvas {
+    height: 100%;
+}
+
+ion-content.map_canvas {
+    --background: transparent !important;
+}
+
+.box-img {
+    .content {
+        display: flex;
+        align-items: center;
+        h2 {
+            font-size: 17px;
+            margin: 0 0 5px;
+        }
+        h3 {
+            font-size:13px;
+        }
+        .btn-status { 
+            padding: 10px;
+        }
+        .img {
+            width: 40%;
+            margin-right: 10px;
+        }
+    }
+    .btn {
+        --background: #f47022;
+    }
+}
+
+.lista-imoveis {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: -7px;
+    top: initial;
+    margin: 0;
+    z-index: 99999999;
+    .btn-lista {
+        text-align: center;
+        .ver-lista {
+            --border-radius: 10px;
+            --padding-end: 20px;
+            --padding-start: 20px;
+            --padding-top: 12px;
+            --padding-bottom: 12px;
+            --height: auto;
+        }
+        
+    }
+    .imoveis {
+        background: #fff;
+        display: none;
+        padding-top: 40px;
+        .imovel {
+            width: 85%;
+            margin: 10px auto 40px;
+            float: none;
+        }
+    }
+}
+
+.header .logoMRV {
+    padding: 6px 0 0px;
+}

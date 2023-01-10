@@ -1,0 +1,53 @@
+<ion-tabs>
+  <ion-tab tab="busca">
+    <ion-router-outlet name="busca"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="home">
+    <ion-router-outlet name="home"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="busca-proximidade">
+    <ion-router-outlet name="busca-proximidade"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="lojas">
+    <ion-router-outlet name="lojas"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="contato">
+    <ion-router-outlet name="contato"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="financiamento">
+    <ion-router-outlet name="financiamento"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="favoritos">
+    <ion-router-outlet name="favoritos"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="subsidio">
+    <ion-router-outlet name="subsidio"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="todos-imoveis">
+      <ion-router-outlet name="todos-imoveis"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="imoveis-interna">
+    <ion-router-outlet name="imoveis-interna"></ion-router-outlet>
+  </ion-tab>
+
+  <ion-tab-bar class="menu-footer" slot="bottom" color="teste">
+
+    <ion-tab-button tab="busca" (click)="navega('/tabs/(busca:busca)')">
+      <ion-icon src="assets/icons/busca.svg" class="icon busca"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="busca-proximidade" (click)="navega('/tabs/(busca-proximidade:busca-proximidade)')">
+      <ion-icon src="assets/icons/location-01.svg" class="icon location"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="lojas" (click)="navega('/tabs/(lojas:lojas)')">
+      <ion-icon src="assets/icons/loja.svg" class="icon loja"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="contato" (click)="navega('/tabs/(contato:contato)')">
+      <ion-icon src="assets/icons/phone1.svg" class="icon favorito"></ion-icon>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+
+</ion-tabs>

@@ -1,0 +1,10 @@
+<ion-content>
+  <section class="modal-chat">
+    <div class="topo">
+      <ion-icon class="close" name="close" (click)="fechaModal()"></ion-icon>
+    </div>
+    <div id="chat">
+      <iframe [(src)]="safeUrl" style='width: 100%; height: 700px;'></iframe>
+    </div>
+  </section>
+</ion-content>

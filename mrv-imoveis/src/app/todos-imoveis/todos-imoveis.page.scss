@@ -1,0 +1,121 @@
+@import "../../theme/base/mixins";
+@import "../../theme/base/variaveis";
+
+.footer-todos-imoveis {
+    position: relative;
+}
+.select-category {
+    position: fixed;
+    bottom: 128px;
+    right: 21px;
+    //@extend %transition;
+    &[data-value="true"]{ 
+        li {
+            display: flex;
+            //opacity: 1;
+            &.animated {
+                display: none;
+                opacity: 0;
+                img {
+                    -webkit-animation-duration: 300ms;
+                    animation-duration: 300ms;
+                    -webkit-animation-name: zoomOut;
+                    animation-name: zoomOut; 
+                }
+            }
+        }
+    }
+ 
+    &[data-value="false"] {
+        display: none;
+        li {
+            //display: none;
+            //opacity: 0;
+            &.animated {
+                display: flex;
+                opacity: 1; 
+                img {
+                    -webkit-animation-duration: 500ms;
+                    animation-duration: 500ms;
+                    -webkit-animation-name: zoomIn;
+                    animation-name: zoomIn;  
+                }
+            } 
+        }
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        @extend %transition;
+        .btn-filtro {
+            --padding-start: 0px !important;
+            --padding-end: 0px !important;
+            --margin-end:0px !important;
+            --margin-start:0px !important;
+            --background: transparent;
+            --box-shadow: none;
+            --border-radius: 0px; 
+            --height: 50px;
+            .legenda {
+                background: #58595b;
+                padding: 11px 10px;
+                margin-right: 5px;
+                border-radius: 5px;
+                letter-spacing: 1.2px;
+            }
+            img {
+                width: 50px;
+                border-radius: 5px;
+            }
+        }
+    }
+    
+}
+
+.icones {
+    position: absolute;
+    top:0;
+    right: 0;
+    color:#fff;
+    font-size: 30px;
+    padding: 10px;
+    .icon-favorito {
+        position: initial;
+        font-size: 30px;
+    }
+}
+
+.filtrar-imoveis {
+    position: fixed;
+    bottom: 75px;
+    right: 19px;
+    box-shadow: -3px 3px #57585a;
+    background: #9acef4;
+    color: #fff;
+    font-size: 24px;
+    z-index: 999;
+    text-align: center;
+    line-height: 1;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.ios-filtro {
+    .select-category {
+        bottom: 180px;
+    }
+    .filtrar-imoveis {
+        bottom: 125px;
+    }
+}
+
+.semImoveis {
+    left: 10%;
+    position: relative;
+}
+
+.header .logoMRV {
+    padding: 6px 0 0px;
+}

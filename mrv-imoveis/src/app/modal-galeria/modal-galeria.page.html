@@ -1,0 +1,40 @@
+<ion-content>
+  <section class="modal-galeria">
+    <div class="topo">
+      <ion-icon class="close" name="close" (click)="fechaModal()"></ion-icon>
+      <ion-icon class="info" name="information-circle-outline" slot="end" (click)="Info()"></ion-icon>
+    </div>
+    <ion-row class="content">
+      <div class="imagem" *ngFor="let imagem of imovel?.Imagens; let i = index">
+        <ion-img class="img" src={{imagem.thumbSmallUrl}} alt="Imóvel" tappable (click)="openImage(i)"></ion-img>
+      </div>
+      <div class="imagem" *ngFor="let video of imovel?.Videos">
+        <ion-icon class="icon-youtube" name="logo-youtube"></ion-icon>
+        <ion-img src="http://img.youtube.com/vi/{{video?.url?.split('//').pop().split('=').pop()}}/0.jpg"
+          class="img-iframe" (click)="abrirVideo(video.url.split('//').pop().split('=').pop())"></ion-img>
+      </div>
+    </ion-row>
+  </section>
+  <div id="info">
+    <ion-icon class="close" name="close" (click)="Info()"></ion-icon>
+    <div class="dt">
+      <div class="vertical">
+        <p>
+          As ilustrações disponíveis neste website têm caráter exclusivamente promocional por se tratar de bem a ser
+          construído. Consulte o memorial descritivo do condomínio para consulta das especificações e contrato de
+          compra e venda para consulta de valores e condições com um corretor.A decoração é mera sugestão.O
+          mobiliário
+          e os equipamentos não fazem parte integrante do contrato de compra e venda. Alguns acabamentos, como pisos
+          e
+          as bancadas podem não fazer parte do apartamento, e podem ser adquiridos no Kit Acabamento quando esta
+          opção
+          estiver disponível para o condomínio e unidade.Os materiais e cores representados poderão sofrer pequenas
+          alterações em função da disponibilidade dos mesmos no mercado.As cotas são medidas de eixo a eixo das
+          paredes.As plantas poderão sofrer variações decorrentes do atendimento das posturas municipais, das
+          concessionárias e do local.Todas as informações devem ser confirmadas com a MRV, pois estão sujeitas a
+          alterações sem prévio aviso.
+        </p>
+      </div>
+    </div>
+  </div>
+</ion-content>

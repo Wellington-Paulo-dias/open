@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Ionic App</title>
+
+  <base href="/" />
+  <!-- 
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    /> -->
+  <meta name="viewport"
+    content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+
+    <!-- add to homescreen for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <script>
+        (function(d,e,id){
+          window.dito={};window._ditoTemp=[];
+          dito.generateID=function(str){return'_dito_sha1_'+str;}
+          var m=['init','identify','alias','unalias','track'],s=d.createElement('script'),
+          x=d.getElementsByTagName(e)[0];s.type='text/javascript';s.async=true;s.id=id;
+          s.src='//storage.googleapis.com/dito/sdk.js';x.parentNode.insertBefore(s,x);
+          for(var i=0;i<m.length;i++){dito[m[i]]=function(i){
+          return function(){_ditoTemp.push({methodName:m[i],params:arguments});}}(i)}
+        })(document,'script','dito-jssdk');
+    
+        dito.init({
+          apiKey: 'MjAxNy0wNS0xMCAxNTozMzo1NSAtMDMwME1SViAtIERFViAtIENvcnJldG9yZXMzNzQ'
+        });
+      </script>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+@import "../../theme/base/mixins";
+@import "../../theme/base/variaveis";
+
+.icones {
+    position: absolute;
+    top:0;
+    right: 0;
+    color:#fff;
+    font-size: 30px;
+    padding: 10px;
+    .icon-favorito {
+        position: initial;
+        font-size: 30px;
+    }
+}
+
+.filtrar-imoveis {
+    position: fixed;
+    bottom: 60px;
+    right: 27px;
+    width: 50px;
+    height: 50px;
+    box-shadow: -3px 3px #57585a;
+    background: #9acef4;
+    color: #fff;
+    font-size: 35px;
+    z-index: 999;
+    text-align: center;
+    line-height: 140%;
+    .icon-filtro {
+        padding: 6px 7px;
+        position: relative;
+        top: 2px;
+    }
+}
+
+.semImoveis {
+    left: 10%;
+    position: relative;
+}
+
+.header .logoMRV {
+    padding: 6px 0 0px;
+}

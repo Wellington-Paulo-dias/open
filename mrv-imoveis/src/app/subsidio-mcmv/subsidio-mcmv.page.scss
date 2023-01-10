@@ -1,0 +1,92 @@
+.subsidio-mcmv {
+    .titulo h2 {
+        font-size: 23px;
+    }
+    .subsidio {
+        --margin-top: 10px;
+        --margin-bottom:10px; 
+        --inner-padding-end: 0;
+        --padding-start: 0;
+        margin: 15px 0 !important;
+        --border-color:transparent;
+        .img {
+            width: 20%;
+        }
+        .resultado {
+            width: 80%;
+            background: #006940;
+            padding: 10px;
+            color:#fff;
+            font-size: 12px;
+            font-family: 'bebasneue_regularregular';
+            letter-spacing: 1px;
+            .valor {
+                font-family: 'bebas_neuebold';
+                font-size: 20px;
+                display: block;
+                margin-bottom: 5px
+            }
+        }
+    }
+    .chat {
+        margin-bottom: 20px;
+    }
+    .obs {
+        margin-bottom: 20px;
+        font-size: 12px;
+        font-family: sans-serif;
+        line-height: 1.2;
+        padding-left: 8px;
+        position: relative;
+        span {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+    .diferenciais-mcmv {
+        margin-top: 20px;
+        margin-bottom: 70px;
+        text-align: center;
+        p {
+            font-family: "bebas_neuebold";
+            font-size:23px;
+            color:#757575;
+            letter-spacing: 1px;
+        }
+        .linha {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            .item {
+                width: 33%;
+                margin: 0 5px;
+                font-size:14px;
+                p {
+                    font-family: sans-serif;
+                    font-size:11px;
+                    text-transform: uppercase;
+                }
+                .icone {
+                    font-size: 27px;
+                    color: #fff;
+                    background: #612d2d;
+                    padding: 12px;
+                    border-radius: 30px;
+                    margin-bottom: 15px;
+                    &.casa {
+                        background: #006940;
+                    }
+                    &.calendario {
+                        background: #ea712c;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+.header .logoMRV {
+    padding: 6px 0 0px;
+}

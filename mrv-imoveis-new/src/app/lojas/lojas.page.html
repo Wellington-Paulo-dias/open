@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-col size="3">
+      <ion-back-button class="back-button" text="" (click)="voltar()"></ion-back-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-img class="logoMRV" src="assets/imagens/logo-mrv.png" (click)="home()"></ion-img>
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-buttons class="nav-button right">
+        <ion-menu-button class="icon-navbar" slot="end"></ion-menu-button>
+      </ion-buttons>
+    </ion-col>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="pg-lojas">
+  <section class="lojas">
+    <div class="loja" *ngFor="let cidade of cidades">
+
+      <div class="titulo">
+        <h2 class="h-linha laranja">
+          {{cidade.nomeCidade}}
+        </h2>
+      </div>
+
+      <div class="dados" *ngFor="let loja of cidade.lojas">
+
+        <div class="titulo">
+          <h3 class="h-linha laranja">
+            {{loja.nomeLoja}}
+            <span *ngIf="loja.distancia != '0 KM'">A {{loja.distancia}}</span>
+          </h3>
+        </div>
+
+        <div class="diferenciais">
+          <div class="item" *ngIf="loja.endereco">
+            <ion-icon class="icon-loja" ios="assets/icons/loja.svg" md="assets/icons/loja.svg"></ion-icon>
+            <p>
+              {{loja.endereco}}
+            </p>
+          </div>
+          <div class="item" *ngIf="loja.estacionamento">
+            <p>
+              <ion-icon class="icon carro" src="assets/icons/carro.svg"></ion-icon>
+              Estacionamento privativo no local
+            </p>
+          </div>
+          <div class="item" *ngIf="loja.unidadeDecorada">
+            <p>
+              <ion-icon class="icon decorado" src="assets/icons/decorado.svg"></ion-icon>
+              Plantão com unidade decorada
+            </p>
+          </div>
+          <div class="item" *ngIf="loja.decoradoVirtual">
+              <p>
+                <ion-icon class="icon decorado" src="assets/icons/decorado.svg"></ion-icon>
+                Plantão com decorado virtual
+              </p>
+            </div>
+        </div>
+
+        <div class="btns">
+          <ion-button class="button mapa" (click)="MapaRota(loja)">
+            <ion-icon class="icon location" src="assets/icons/location-01.svg" id="loja.id"></ion-icon>
+            <ion-label>Mapa</ion-label>
+          </ion-button>
+          <ion-button class="button tel" *ngFor="let telefone of loja.telefones" (click)="Ligar(telefone.numero)">
+            <ion-icon class="icon telefone" src="assets/icons/telefone-branco.svg" *ngIf="telefone != null"></ion-icon>
+            <ion-label>{{telefone.numero}}</ion-label>
+          </ion-button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="loja" *ngIf="!cidades">
+      <div class="titulo">
+        <h2 class="h-linha laranja">
+          Pesquisa não tem correspondências
+        </h2>
+      </div>
+    </div>
+  </section>
+</ion-content>
+
+<ion-footer class="busca-bottom">
+  <div class="busca-lojas">
+    <div class="center">
+      <ion-button id="btnBusca" class="filtrar" shape="round" (click)="abrirBuscaLoja()">
+        <ion-icon class="icon filtro" src="assets/icons/funnel.svg"></ion-icon> Filtrar
+      </ion-button>
+    </div>
+
+    <div id="formBusca" class="form-busca">
+      <ion-button id="btnFechaBusca" class="voltar" shape="round" (click)="fecharBuscaLoja()">
+        <ion-label>Voltar</ion-label>
+      </ion-button>
+      <div class="titulo">
+        <h2 class="h-linha laranja">Buscar lojas</h2>
+      </div>
+      <div class="form">
+        <div class="campo">
+          <ion-select class="select" placeholder="Estado" id="estado" [(ngModel)]="estadoSelecionado" (ionChange)="ChangeEstado()">
+              <ion-select-option value={{estado.id}} *ngFor="let estado of estados" >{{estado.nome}}</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="campo">
+          <ion-select class="select" placeholder="Cidade" [(ngModel)]="cidadeSelecionada" id="cidade">
+              <ion-select-option value="{{cidade.idCidade}}" *ngFor="let cidade of cidadesBusca"> {{cidade.nomeCidade}} </ion-select-option>
+          </ion-select>
+        </div>
+        <div class="campo" (click)="Filtrar()">
+          <ion-button class="submit" type="submit" expand="full" size="default" id="enviaBusca">
+            <ion-label>Filtrar</ion-label>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-footer>
+

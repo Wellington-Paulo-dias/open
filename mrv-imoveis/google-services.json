@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "221712471398",
+    "firebase_url": "https://compre-seu-mrv-openmrv.firebaseio.com",
+    "project_id": "compre-seu-mrv-openmrv",
+    "storage_bucket": "compre-seu-mrv-openmrv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221712471398:android:01127f4a37c34aa40464a7",
+        "android_client_info": {
+          "package_name": "com.mrv.compre"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "221712471398-mpii4pkn30r4g2kb7ge08iqbr5qqqh6r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mrv.compre",
+            "certificate_hash": "9ef9f663ffd7c0b2572931c55647481dee032f6b"
+          }
+        },
+        {
+          "client_id": "221712471398-uvimm4qnctti6hcte4dphihv3oebenbl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg0GvdTZc4x9McK0yWyBD7hYJ2phSMWLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "221712471398-uvimm4qnctti6hcte4dphihv3oebenbl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

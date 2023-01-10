@@ -1,0 +1,33 @@
+.menu-footer {
+    border:1px solid #d2c5c5;
+    .tab-selected {
+        border-top: 2px solid #006940;
+        background: #e2f3ea;
+    }
+    .icon {
+        height: 32px;
+        position: relative;
+        color:#006940;
+        &.favorito {
+            top:2px;
+            height: 30px;
+        }
+        &.home {
+            top: -1px;
+            height: 41px;
+        }
+        &.location {
+            top:4px;
+        }
+        &.loja {
+            top:0px;
+            height: 23px;
+        }
+        &.ligamos {
+            top:5px;
+        }
+        &.busca {
+            top: 1px;
+        }
+    }
+}

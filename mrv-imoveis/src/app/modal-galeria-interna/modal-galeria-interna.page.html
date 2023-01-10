@@ -1,0 +1,33 @@
+<ion-content fullscreen>
+
+  <div class="top">
+    <ion-icon (click)="fechar()" class="seta" src="assets/icons/left-arrow.svg" slot="start"></ion-icon>
+    <div class="icones">
+      <ion-icon src="assets/icons/compartilhar.svg" slot="end" (click)="Share()"></ion-icon>
+      <ion-icon src="assets/icons/chat-pre.svg" slot="end" (click)="openWhatsMRV()"></ion-icon>
+    </div>
+  </div>
+
+  <ion-slides #Slider pager="true" [options]="sliderOpts" (ionSlideDidChange)="updateInfo()">
+    <ion-slide *ngFor="let image of imagens">
+      <div class="swiper-zoom-container">
+        <img src="{{image.url}}">
+      </div>
+      <div class="bottom">
+        <div class="content">
+          <div class="txt-site">
+            <p>
+              {{image.titulo}}
+            </p>
+          </div>
+          <div class="controler">
+            <ion-icon class="icon-img" md="image" ios="image"></ion-icon>
+            <span class="dots">
+              {{slideAtual}}/{{slideTotal}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

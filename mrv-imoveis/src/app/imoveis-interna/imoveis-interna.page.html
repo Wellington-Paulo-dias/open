@@ -1,0 +1,182 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-col size="3">
+      <ion-back-button class="back-button" (click)="voltar()" text=""></ion-back-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-img class="logoMRV" src="assets/imagens/logo-mrv.png" (click)="home()"></ion-img>
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-buttons class="nav-button right">
+        <ion-menu-button class="icon-navbar" slot="end"></ion-menu-button>
+      </ion-buttons>
+    </ion-col>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="pg-imoveis-interna pre-lancamento">
+    <div [class]="classeFundo === true ? 'Fundo' : ''"></div>
+    <ion-row>
+      <ion-col size="12">
+        <div class="slider-interna">
+          <div class="icones-slide">
+            <ion-icon
+              [class]="detalhesImovel?.Favorito ? 'favoritado icon-favorito hydrated' : 'icon-favorito hydrated'"
+              src="assets/icons/favorito-ativo.svg"
+              (click)="Favoritar(detalhesImovel?.IdImovel); $event.stopPropagation();"></ion-icon>
+            <span>
+              <ion-icon class="share" src="assets/icons/compartilhar.svg" slot="end" (click)="Share()"></ion-icon>
+            </span>  
+          </div>            
+          <ion-slides #firstSlider (ionSlidesDidLoad)="bullets()" (ionSlideDidChange)="bullets()" (ionSlideWillChange)="controleSlide()">
+            <ion-slide class="item" *ngFor="let imagem of detalhesImovel?.Imagens">
+              <ion-img src="{{imagem.thumbMediumUrl}}" alt="" (click)="modalGaleria()"></ion-img>
+              <ion-img class="logo-emp" src="{{detalhesImovel?.UrlLogo}}" alt=""></ion-img>
+            </ion-slide>
+          </ion-slides>
+
+          <div class="controler">
+            <ion-icon class="icon-img" md="image" ios="image"></ion-icon>
+            <span class="dots">
+              {{slideAtual}}/{{slideTotal}}
+            </span>
+          </div>
+        </div>
+
+        <section class="detalhe pre-lancamento">
+          <section class="dados-iniciais">
+            <h2 class="h"><strong>{{detalhesImovel?.Endereco.Bairro}}
+              </strong></h2>
+            <h2 class="localizacao h">
+              <strong>{{detalhesImovel?.Endereco.Cidade}}/{{detalhesImovel?.Endereco.Uf}}</strong></h2>
+            <h2 class="nome">{{detalhesImovel?.NomeImovel}}</h2>
+            <div class="distancia">
+              <ion-icon class="icon-location" src="assets/icons/location-01.svg"></ion-icon> <span>A
+                {{detalhesImovel?.Distancia}} De
+                Distância</span>
+            </div>
+            <ul class="lista-selos">
+              <li *ngFor="let ribbon of detalhesImovel?.Ribbons">
+                <ion-img src="{{ribbon.UrlBackground}}" alt=""></ion-img>
+              </li>
+            </ul>
+          </section>
+
+          <section class="diferenciais">
+            <ul class="lista-icones only-mobile mobile-icones-dif">
+              <li *ngFor="let diferencial of detalhesImovel?.Diferenciais.slice(0, 3)">
+                <img src={{diferencial.Icone}} alt="{{diferencial.Titulo}}"> <span>{{diferencial.Titulo}}</span>
+              </li>
+              <li class="li-todos" (click)="modalDiferenciais()"><span class="mais">+</span> Mais</li>
+            </ul>
+          </section>
+
+          <section class="txt-imovel">
+            <div class="txt-site">
+
+              <div class="inline">
+                <p id="descricao-curta" *ngIf="detalhesImovel?.Descricao.length <= 80">
+                  {{detalhesImovel?.Descricao}}
+                </p>
+                <p id="descricao-curta" *ngIf="detalhesImovel?.Descricao.length > 80">
+                  {{detalhesImovel?.Descricao.slice(0, 80)}} ...
+                </p>
+              </div>
+
+              <div id="toggleTexto" class="txt-oculto">
+                <p>
+                  {{detalhesImovel?.Descricao}}
+                </p>
+              </div>
+
+              <span id="btnTexto" class="btn-mais" (click)="toggle()">Saiba mais</span>
+
+            </div>
+          </section>
+          <div class="btns">
+            <div class="btn preco" (click)="openWhatsMRV()">
+              <ion-icon class="icon-btn" src="assets/icons/financeiro.svg"></ion-icon>
+              <h2 class="h-simples">
+                Pergunte o Preço
+              </h2>
+            </div>
+          </div>
+          <section class="content localizacao">
+            <h3 class="h-simples">localização</h3>
+            <div class="txt-site">
+              <div class="intro">
+                <p id="descricao-curta-local" *ngIf="detalhesImovel?.Localizacao.Descricao.length <= 80">
+                  {{detalhesImovel?.Localizacao.Descricao}}
+                </p>
+                <p id="descricao-curta-local" *ngIf="detalhesImovel?.Localizacao.Descricao.length > 80">
+                  {{detalhesImovel?.Localizacao.Descricao.slice(0,80)}} ...
+                </p>
+              </div>
+              <div id="toggleTextoLocaliza" class="txt-oculto">
+                <p>
+                  {{detalhesImovel?.Localizacao.Descricao}}
+                </p>
+              </div>
+              <span id="btnTextoLocaliza" class="btn-mais" (click)="toggleLocaliza()">Saiba mais</span>
+
+              <p class="end">
+                {{detalhesImovel?.Endereco.Logradouro}} ({{detalhesImovel?.Endereco.Bairro}} -
+                {{detalhesImovel?.Endereco.Cidade}}/{{detalhesImovel?.Endereco.Uf}})
+              </p>
+            </div>
+            <ion-img src={{detalhesImovel?.Localizacao.UrlImagemMapa}} (click)="MapaRota()" alt=""></ion-img>
+          </section>
+
+          <div class="fichatecnica" (click)="modalFichaTecnica()">
+            <ion-icon name="list-box"></ion-icon> <span>Ficha técnica</span>
+          </div>
+
+        </section>
+
+        <div class="btns">
+          <div *ngFor="let tour of detalhesImovel?.Tours">
+            <a href={{tour.url}} class="btn tour" *ngIf="tour.tipo == 'Decorado'">
+              <ion-icon class="icon-btn" src="assets/icons/tour-no-decorado.svg"></ion-icon>
+              <h2 class="h-simples">
+                TOUR NO DECORADO
+              </h2>
+            </a>
+            <a href={{tour.url}} class="btn tour" *ngIf="tour.tipo == 'Live'">
+              <ion-icon class="icon-btn" src="assets/icons/tour-no-decorado.svg"></ion-icon>
+              <h2 class="h-simples">
+                TOUR LIVE
+              </h2>
+            </a>
+            <a href={{tour.url}} class="btn tour" *ngIf="tour.tipo == 'Fachada'">
+              <ion-icon class="icon-btn" src="assets/icons/tour-condominio.svg"></ion-icon>
+              <h2 class="h-simples">
+                TOUR NO CONDOMÍNIO
+              </h2>
+            </a>
+            <a href={{tour.url}} class="btn ape" *ngIf="tour.tipo == 'Ape'">
+              <ion-icon class="icon-btn" src="assets/icons/tour-condominio.svg"></ion-icon>
+              <h2 class="h-simples">
+                PASSEIO NO APÊ
+              </h2>
+            </a>
+            <a href={{tour.url}} class="btn tour" *ngIf="tour.tipo == 'Condominio'">
+              <ion-icon class="icon-btn" src="assets/icons/tour-condominio.svg"></ion-icon>
+              <h2 class="h-simples">
+                PASSEIO NO CONDOMÍNIO
+              </h2>
+            </a>
+          </div>
+        </div>
+
+        <div class="img-chat" (click)="openWhatsMRV()">
+          <ion-img src="assets/imagens/chat.png" alt=""></ion-img>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </section>
+</ion-content>

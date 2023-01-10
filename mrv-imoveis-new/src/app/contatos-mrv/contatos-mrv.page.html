@@ -1,0 +1,128 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-col size="3">
+      <ion-back-button class="back-button" text="" (click)="voltar()"></ion-back-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-img class="logoMRV" src="assets/imagens/logo-mrv.png" (click)="home()"></ion-img>
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-buttons class="nav-button right">
+        <ion-menu-button class="icon-navbar" slot="end"></ion-menu-button>
+      </ion-buttons>
+    </ion-col>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <section class="contatos-mrv">
+    <ion-grid>
+
+      <ion-row>
+        <ion-col size="12">
+          <div class="titulo">
+            <h2 class="h-linha laranja">
+              Quero comprar um imóvel
+            </h2>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="row">
+        <ion-col (click)="openWhatsMRV()">
+          <div class="item">
+            <ion-icon class="icones-contato" src="assets/icons/chat-pre.svg"></ion-icon>
+            <p>Chat 24H com atendente</p>
+          </div>
+        </ion-col>
+        <ion-col (click)="modalMensagem()">
+          <div class="item">
+            <ion-icon class="icones-contato" name="mail"></ion-icon>
+            <span>Envie uma mensagem</span>
+          </div>
+        </ion-col>
+        <ion-col (click)="Ligar('4004-9000')">
+          <div class="item">
+            <ion-icon class="icones-contato tel" src="assets/icons/telefone_.svg"></ion-icon>
+            <span>ligar 4004-9000</span>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="row">
+        <ion-col (click)="modalLigamos()">
+          <div class="item">
+            <ion-icon class="icones-contato ligamos" src="assets/icons/ligamos-para-voce-01.svg"></ion-icon>
+            <span>Ligamos <br>para você</span>
+          </div>
+        </ion-col>
+        <ion-col (click)="navega('/tabs/(lojas:lojas)')">
+          <div class="item">
+            <ion-icon class="icones-contato lojas" src="assets/icons/loja.svg">
+            </ion-icon>
+            <span (click)="navega('/tabs/(lojas:lojas)')">Lojas</span>
+          </div>
+        </ion-col>
+        <ion-col (click)="Facebook()">
+          <div class="item">
+            <a href="http://m.me/MRV">
+              <ion-icon class="icones-contato" src="assets/icons/mesenger-01.svg"></ion-icon>
+            </a>
+            <span (click)="Facebook()">Facebook Messenger</span>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <div class="titulo">
+            <h2 class="h-linha laranja">
+              Relacionamento com o cliente
+            </h2>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="row">
+        <ion-col>
+          <div class="item" (click)="portal()">
+            <ion-icon class="icones-contato portal" src="assets/icons/portal-01.svg"></ion-icon>
+            <span>Portal MRV</span>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="item" (click)="Ligarcliente()">
+            <ion-icon class="icones-contato" src="assets/icons/telefone_.svg"></ion-icon>
+            <span>Ligar para o relacionamento</span>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="item" (click)="meuMrv()">
+            <ion-icon class="icones-contato meu-mrv" src="assets/icons/meu-mrv-01.svg"
+              ios="assets/icons/meu-mrv-01.svg"></ion-icon>
+            <span>App meu MRV</span>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </section>
+  <section id="modal" class="modal">
+
+    <div class="table">
+      <div class="vertical">
+        <div class="numeroCliente">
+          <ion-icon (click)="closeLigarCliente()" class="close" name="close-circle"></ion-icon>
+          <p>Grandes cidades</p>
+          <span (click)="Ligar('4005-1313')">4005 1313</span>
+          <p>demais localidades</p>
+          <span (click)="Ligar('03140051313')">(031) 4005 1313</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</ion-content>

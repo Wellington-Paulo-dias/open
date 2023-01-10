@@ -1,0 +1,79 @@
+$open: "open_sansregular";
+$openbold: "open_sansbold";
+$bebas: "bebas_neuebold";
+$bebasReg: "bebasneue_regularregular";
+$opensemi: "OpenSans-SemiBold";
+
+$pronto:#FB595C;
+//$pronto:#CA0035;
+$oferta:#FFCC00;
+$lancamento:#f68f39;
+$em-construcao:#5a9df9;
+$pre-lancamento:#00C997;
+
+
+
+
+$laranja:#f68a21;
+$preto: #57585a;
+$cinza: #f6f6f6;
+$azul:#9acef4;
+
+/* Media Querys */
+$full: "screen and (min-width: 1601px)";
+$mrv: "screen and (min-width: 1380px)";
+$notebook: "screen and (min-width: 1200px)";
+$media1025: "screen and (min-width: 1025px)";
+$tabletW: "screen and (min-width: 960px)";
+$tabletH: "screen and (min-width: 768px)";
+$tabletUnico : "screen and (max-width: 768px) AND (mAX-width: 1025px)";
+$mobile: "screen and (max-width: 767px)";
+$miniMoble: "screen and (max-width: 350px)";
+
+
+@mixin full {
+  @media #{$full} {
+    @content;
+  }
+}
+
+@mixin tabletUnico {
+  @media #{$tabletUnico} {
+    @content;
+  }
+}
+@mixin mrv {
+  @media #{$mrv} {
+    @content;
+  }
+}
+@mixin notebook {
+  @media #{$notebook} {
+    @content;
+  }
+}
+@mixin media1025 {
+  @media #{$media1025} {
+    @content;
+  }
+}
+@mixin tabletW {
+  @media #{$tabletW} {
+    @content;
+  }
+}
+@mixin tabletH {
+   @media #{$tabletH} {
+    @content;
+  }
+}
+@mixin mobile {
+  @media #{$mobile} {
+    @content;
+  }
+}
+@mixin miniMobile {
+  @media #{$miniMoble} {
+    @content;
+  }
+}

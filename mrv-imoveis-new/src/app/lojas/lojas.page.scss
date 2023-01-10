@@ -1,0 +1,180 @@
+.header .logoMRV {
+    padding: 6px 0 0px;
+}
+.lojas {
+    background: #fff;
+    .loja {
+        margin-bottom: 50px;
+        position: relative;
+        z-index: 5;
+        .titulo h2 {
+            font-size: 25px;
+        }
+        .dados {
+            margin:0 20px;
+           
+            .titulo {
+                h3 {
+                    font-size: 18px;
+                    text-decoration: initial;
+                    position: relative;
+                    margin:30px 0px 20px 0px;
+                    span {
+                        position: absolute;
+                        right: 0;
+                        color:#ea712c;
+                        font-family: "bebasneue_regularregular"; 
+                    }
+                }
+            }
+        
+            .diferenciais {
+                .item {
+                    margin-bottom: 10px;
+                    position: relative;
+                    min-height: 28px;
+                    display: flex;
+                    align-items: center;
+                    .icon-loja {
+                        position: absolute;
+                        top:0px;
+                        left: 4px;
+                            font-size: 25px;
+                            height: 25px;
+                        background-repeat: no-repeat;
+                    }
+                    .icon {
+                        position: absolute;
+                        top:2px;
+                        left: 0;
+                        font-size: 25px;
+                        &.decorado {
+                            font-size: 35px;
+                        }
+                        &.carro {
+                            left: 4px;
+                        }
+                    }
+                    p { 
+                        font-size: 13px;
+                        font-family: 'OpenSans-SemiBold';
+                        font-weight: 100; 
+                        letter-spacing: 1px;
+                        line-height: 1;
+                        padding-left: 40px;
+                        color:#58595b;
+                    }
+                }
+            }
+            .btns {
+                margin-top: 5px;
+                .button {
+                    --width: 112px;
+                    --justify-content: end;
+                    font-size:13px;
+                    --padding-start:5px;
+                    --padding-end:5px;
+                    &.button-inner {
+                        justify-content: end;
+                    }
+
+                    &.mapa {
+                        --width: 80px;
+                        --background:#ea712c;
+                    }
+                    &.tel {
+                        --background:#ea712c
+                    }
+                    .icon {
+                        color: #fff;
+                        margin-right: 3px;
+                        position: relative;
+                        top:2px;
+                        font-size:20px;
+                        &.tel {
+                            color:#fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.busca-bottom {
+    background: #fff;
+    border: none;
+    &:before{
+        background: none;
+    }
+}
+.busca-lojas {
+    .center {
+        letter-spacing: 1px;
+        padding: 5px 0;
+        .filtrar {
+            --width: 130px;
+            --margin-top: 0;
+            --margin-end:auto;
+            --margin-start:auto;
+            --background: #c3c8cc;
+            --padding-start:15px;
+            --border-radius:10px;
+            letter-spacing: 1px;
+            font-size: 14px;
+            .filtro {
+                color: #fff;
+                font-size: 18px;
+                position: relative;
+                top: 0px;
+                margin-right: 5px;
+            }
+        } 
+    }
+    .form-busca {
+        height: 0px;
+        background: #fff;
+        .voltar {
+            --padding-top: 0px;
+            --padding-bottom: 0px;
+            --height: 33px;
+            letter-spacing: 1px;
+            --border-radius: 0 50px 50px 0;
+            position: relative;
+            left: -2px;
+        }
+        h2 {
+            font-size: 18px;
+        }
+        .campo {
+            --width:100%;
+            .select {
+                border: 1px solid #58595b;
+                padding: 10px;
+                margin: 10px;
+            }
+        }
+        .submit {
+            padding: 0;
+            --background: #f68a21;
+            letter-spacing: 1px;
+        }
+        &.ativo {
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-name: slideInUp;
+            animation-name: slideInUp;
+            height: auto!important;
+        }
+        &.esconder {
+            height: auto;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-name: slideOutDown;
+            animation-name: slideOutDown;
+        }
+    }
+}

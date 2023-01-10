@@ -1,0 +1,26 @@
+.toggle {
+    #toggle, #ocultar {
+        color:#757575;
+        font-size: 35px;
+    }
+    .pesquisa-avancada {
+        height: 0;
+        opacity: 0;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        &.ativo { 
+            height: 110px;
+            opacity: 1;
+        }
+    }
+}
+
+.header .logoMRV {
+    padding: 6px 0 0px;
+}
+
+.form .input .select {
+    padding: 2px;
+}

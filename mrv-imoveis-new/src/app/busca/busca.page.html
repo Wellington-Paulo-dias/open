@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-col size="3">
+      <ion-back-button class="back-button" text="" (click)="voltar()"></ion-back-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-img class="logoMRV" src="assets/imagens/logo-mrv.png" (click)="home()"></ion-img>
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-buttons class="nav-button right">
+        <ion-menu-button class="icon-navbar" slot="end"></ion-menu-button>
+      </ion-buttons>
+    </ion-col>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="titulo">
+          <h2 class="h-linha laranja">
+            Encontre seu imóvel
+          </h2>
+        </div>
+        <div class="form form-atendimento">
+          <ion-item class="input">
+            <ion-label class="label">Estado:</ion-label>
+            <ion-select class="select" value="Estado" ok-text="ok" name="estadoEscolhido" cancel-text="cancelar" [(ngModel)]="estadoEscolhido" (ionCancel)="LimparCampoEstado()" (ionChange)="CarregarCidades()">
+              <ion-select-option [value]="estado" *ngFor="let estado of estados" >{{estado?.nome}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item class="input">
+            <ion-label class="label">Cidade:</ion-label>
+            <ion-select class="select" value="Cidade" *ngIf="existeCidade" ok-text="ok" name="cidadeEscolhida" cancel-text="cancelar" [(ngModel)]="cidadeEscolhida" (ionCancel)="LimparCampoCidade()" (ionChange)="CarregarBairros();">
+              <ion-select-option [value]="cidade" *ngFor="let cidade of cidades" >{{cidade?.nome}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <div class="toggle">
+            <ion-icon [@FadeToggle]="isToggle ? 'fadeIn' : 'fadeOut'" id="toggle" (click)="toggle()" slot="start" name="add-circle"></ion-icon>
+            <div id="pesquisa-avancada" class="pesquisa-avancada">
+              <ion-item class="input">
+                <ion-label class="label">Região:</ion-label>
+                <ion-select class="select" multiple="true" *ngIf="existeBairro" value="regiao" ok-text="ok" name="bairrosEscolhidos" cancel-text="cancelar" [(ngModel)]="bairrosEscolhidos" (ionCancel)="LimparCampoBairro()" (ionChange)="AlterarBairros();">
+                  <ion-select-option [value]="bairro" *ngFor="let bairro of bairros" >{{bairro?.nome}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item class="input">
+                <ion-label class="label">Faixa de preço:</ion-label>
+                <ion-select class="select" compare-with="compararFaixa" multiple="true" value="preco" name="faixaDePrecoEscolhida" ok-text="ok" cancel-text="cancelar" [(ngModel)]="faixaDePrecoEscolhida" (ionCancel)="LimparCampoFaixaDePreco()">
+                  <ng-container *ngIf="existeFaixa">
+                    <ion-select-option [value]="faixa" *ngFor="let faixa of faixasDePreco">{{faixa?.faixaDePreco}}</ion-select-option>
+                  </ng-container>
+                  <ng-container *ngIf="!existeFaixa">
+                    <ion-select-option disabled="true" selected="true" >Todas as faixas de preço</ion-select-option>
+                  </ng-container>
+                </ion-select>
+              </ion-item>
+            </div> 
+          </div>
+          <ion-item class="enviar">
+            <ion-input type="submit" value="Buscar" (click)="BuscarImoveis()"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

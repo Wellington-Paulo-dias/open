@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>221712471398-ije7m68rarfh4t25vfjvohvrrqtd1lrb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.221712471398-ije7m68rarfh4t25vfjvohvrrqtd1lrb</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>221712471398-mpii4pkn30r4g2kb7ge08iqbr5qqqh6r.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAAOeJILIvy_hg9J3FI0-NOcExD7QfxU90</string>
+	<key>GCM_SENDER_ID</key>
+	<string>221712471398</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>br.mrv.compre21</string>
+	<key>PROJECT_ID</key>
+	<string>compre-seu-mrv-openmrv</string>
+	<key>STORAGE_BUCKET</key>
+	<string>compre-seu-mrv-openmrv.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<true></true>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:221712471398:ios:7382e0a94c4ba8be0464a7</string>
+	<key>DATABASE_URL</key>
+	<string>https://compre-seu-mrv-openmrv.firebaseio.com</string>
+</dict>
+</plist>

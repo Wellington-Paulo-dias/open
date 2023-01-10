@@ -1,0 +1,44 @@
+@import "../../theme/base/mixins";
+@import "../../theme/base/variaveis";
+
+.titulo {
+    margin: 20px 0px 20px 15px;
+    .h-linha {
+        display: inline-block;  
+        margin: 0;
+        width: 80%;
+    }
+    .ver-mais {
+        display: inline-block;
+        margin: 0 0 0 10px;
+        color: $laranja;
+        font-family: $bebasReg;
+        background: transparent;
+        position: relative;
+        top: 10px;
+        .seta {
+            position: relative;
+            top:2px;
+        }
+    }
+}
+
+.imoveis-cidades .titulo .h-linha {
+    width: 100%;
+}
+
+ion-spinner {
+    left: 50%;
+}
+
+.semImoveis {
+    padding-left: 15px;
+}
+
+.nav-button {
+    position: relative;
+    .icon-navbar {
+        position: absolute;
+        top: -2px;
+    }
+}

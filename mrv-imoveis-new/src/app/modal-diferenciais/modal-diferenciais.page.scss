@@ -1,0 +1,55 @@
+.modal-diferenciais {
+    padding: 15px;
+    .topo {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: #fff;
+        padding-bottom: 5px;
+        z-index: 99;
+        .close {
+            font-size: 30px;
+            margin-top: 15px;
+        }
+        h2 {
+            margin-top: 10px;
+            padding-left: 10px;
+        }
+    }
+    ul {
+        li {
+            border-bottom: 1px solid #bbbec3; 
+            padding: 10px;
+            &.ativo .txt-site {
+                display: block;
+                -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+                -webkit-animation-name: fadeIn;
+                animation-name: fadeIn;
+            }
+            .item {
+                color: #58595b;
+                display: flex;
+                align-items: center;
+                position: relative; 
+                .icone {
+                    width: 30px;
+                    margin-right: 10px;
+                }
+                .seta {
+                    position: absolute;
+                    top: 6px;
+                    font-size: 20px;
+                    right: 0;
+                    color: #58595b;
+                }
+            }
+           .txt-site {
+               display: none;
+               color: #58595b;
+           } 
+        }
+    }
+}

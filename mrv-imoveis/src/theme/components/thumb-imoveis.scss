@@ -1,0 +1,594 @@
+.lista-imoveis {
+    margin:0 10px 0px;
+    padding: 15px 0;
+    @include transition(0.5s);
+    @extend %clearfix;
+
+    @media screen and (min-width: 400px) {
+        font-size: 19px;
+    }
+
+    @include tabletH {
+        overflow: hidden;
+        font-size: 14px;
+        position: relative;
+        z-index: 1;
+        top: 0;
+        margin-bottom: 0px;
+    }
+
+    .imoveis-paginacao {
+        position: relative;
+        padding: 10px 0 0;
+
+        @include tabletH {
+            position: relative;
+            border-left: 1px solid #cecece;
+            border-top: 1px solid #cecece;
+            padding: 26px 0 30px 38px;
+            margin: 0 0 11px -38px;
+        }
+
+        @extend %clearfix;
+    }
+
+    .imovel {
+        letter-spacing: 1.5px;
+        @extend %clearfix;
+        margin-bottom: 30px;
+        @include transition(0.6s);
+        border-top: 2px solid #fff;
+
+        @include tabletH {
+            border: 2px solid #fff;
+            width: 32%;
+            margin: 10px 0.5% 10px;
+            float: left;
+        }
+
+        &.destaque {
+            background: #fff;
+            border-color: $cinza;
+        }
+
+        .img-imovel{
+            position: relative;
+            a {
+                display: block;
+            }
+            .tag-ofertas {
+                top: -11px;
+                left: 5px;
+                position: absolute;
+                text-align: center;
+                font-family: "bebas_neuebold";
+                background-image: url('assets/icons/oferta.png');
+                background-size: cover;
+                width: 60px;
+                height: 48px;
+                color: #fff;
+                letter-spacing: .5px;
+                padding: 17px 9px 9px;
+                font-size: 15px;
+            }
+            .tag-itbi {
+                top: -11px;
+                left: 75px;
+                position: absolute;
+                text-align: center;
+                font-family: "bebas_neuebold";
+                background-image: url('assets/icons/itbi.png');
+                background-size: cover;
+                width: 60px;
+                height: 48px;
+                color: #fff;
+                letter-spacing: .5px;
+                padding: 9px;
+                font-size: 15px;
+            }
+            .icon-favorito{
+                position: absolute;
+                top: 5px;
+                right: 5px; 
+                color: #838483;
+                font-size: 26px;
+                background: #fff;
+                border-radius: 30px;
+                box-shadow: 3px 3px 5px rgba(161, 34, 34, 0.4);
+            }
+            .distancia {
+                position: absolute;
+                bottom: 2px;
+                width: 100%;
+                span{
+                    color: #fff;
+                    padding: 5px 5px 3px;
+                    font-size: 14px;
+                    font-family: $bebasReg;
+                    float: right;
+                }
+            }
+        }
+
+        .data-expiracao {
+            clear: both;
+            text-align: left;
+            color: #fff;
+            font-size: toem(10);
+            letter-spacing: 0;
+            padding: 5px 10px 5px;
+            margin: 0 0 0px;
+            position: relative;
+            display: block;
+            line-height: 151%;
+
+            &.only-mobile {
+                background: $laranja !important;
+            }
+
+            @include tabletH {
+                font-size: toem(10);
+                text-align: center;
+                padding: 0 10px 5px;
+                margin: -5px 0 0 0;
+            }
+        }
+
+        .item-oferta {
+            letter-spacing: 1.5px;
+
+
+            .preco {
+                background: $cinza;
+                padding: 1px 0 3px 8%;
+
+                @include mobile {
+                    height: auto !important;
+                }
+
+                @include tabletH {
+                    padding: 10px 0 0 0;
+                }
+
+                .txt-de {
+                    font-size: toem(17);
+                    font-family: $bebasReg;
+                    padding: 10px 0 4px;
+                    border-bottom: 1px solid #b2b2b2;
+                    position: relative;
+                    padding: 10px 0 0;
+
+
+
+                    @include tabletH {
+                        font-family: $bebas;
+                        margin: 0 10px 6px 20px;
+                        font-size: toem(27);
+                    }
+
+                    &:after {
+                        height: 3px;
+                        width: 10%;
+                        position: absolute;
+                        bottom: -3px;
+                        left: 0;
+                        content: "";
+                    }
+                }
+
+                .txt-por {
+                    padding: 10px 0 0;
+                    text-align: center;
+                    @extend %clearfix;
+
+                    @include tabletH {
+                        padding: 10px 10px 20px 20px;
+                    }
+
+                    .por {
+                        font-size: toem(17);
+                        font-family: $bebasReg;
+                        display: block;
+                        margin-bottom: -11px;
+                        text-align: left;
+                        width: 100%;
+
+                        @include tabletH {
+                            font-family: $bebas;
+                            font-size: toem(27);
+                            margin: -8px 0 -13px;
+                        }
+
+                        @include media1025 {
+                            margin-bottom: -20px;
+                        }
+                    }
+
+                    .rs {
+                        font-size: toem(25);
+                        font-family: $bebas;
+                        @include inline-block;
+
+                        @include tabletH {
+                            font-size: toem(38);
+                            margin-left: 33px;
+                        }
+
+                        @include notebook {
+                            font-size: toem(48);
+                            margin-left: 21px;
+                        }
+                    }
+
+                    .valor {
+                        @include inline-block;
+                        font-family: $bebas;
+                        font-size: toem(49);
+
+                        @include tabletH {
+                            font-size: toem(70);
+                        }
+
+                        sup {
+                            vertical-align: super;
+                            @include px-to-em-filho(60,127);
+                        }
+                    }
+                }
+            }
+
+            .txt-oferta {
+                background: #fbfbfb;
+                padding: 10px 10px;
+                width: 100%;
+                text-align: center;
+                @include inline-block;
+
+
+                @include tabletH {
+                    padding: 30px 10px;
+                }
+
+                .oferta1 {
+                    font-size: toem(25);
+                    font-family: $bebas;
+
+                    @include tabletH {
+                        font-size: toem(38);
+                    }
+                }
+
+                .oferta2 {
+                    font-size: toem(18);
+                    font-family: $bebasReg;
+
+                    @include tabletH {
+                        font-size: toem(20);
+                    }
+                }
+            }
+        }
+
+        .txt-thumb {
+            margin-left: 5%;
+
+            @include tabletH {
+                margin-left: 0;
+                position: relative;
+                padding: 0px 0 10px 15px;
+            }
+        }
+
+        .nome {
+            font-size: toem(9);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 138%;
+            font-weight: bold;
+
+            @include media1025 {
+                font-size: toem(12);
+            }
+        }
+
+        .localizacao {
+            text-transform: uppercase;
+            font-size: toem(16);
+            font-family: $bebasReg;
+            border-bottom: 1px solid #b2b2b2;
+            margin: 12px 5px 5px 0;
+            padding-bottom: 3px;
+            position: relative;
+
+            &:after {
+                @include tabletH {
+                    height: 3px;
+                    width: 10%;
+                    position: absolute;
+                    bottom: -3px;
+                    left: 0;
+                    content: "";
+                }
+            }
+
+            @include tabletH {
+                margin: 12px 10px 10px 0;
+                font-size: toem(24);
+            }
+
+            strong {
+                display: block;
+                @include px-to-em-filho(18,16);
+                font-family: $bebas;
+                margin-bottom: 5px;
+
+                @include tabletH {
+                    @include px-to-em-filho(32,24);
+                    margin-bottom: 4px;
+                    line-height: 100%;
+                }
+            }
+        }
+
+        .lista-tags {
+            margin: 10px 0 10px;
+
+            li {
+                color: #fff;
+                padding: 5px 10px;
+                font-family: $bebasReg;
+                text-transform: uppercase;
+                margin: 0 3px 5px 0;
+                @include inline-block;
+                font-size: 14px;
+
+                @include tabletH {
+                    padding: 5px;
+                    font-size: toem(18);
+                }
+            }
+        }
+        .min-height-extras {
+            min-height: 50px;
+        }
+        .lista-extras {
+            @include tabletH {
+                margin-top: 15px;
+            } 
+
+            li {
+                font-family: $bebasReg;
+                font-size: toem(15);
+                border-bottom: 1px solid #bcbcc0;
+                position: relative;
+                margin-bottom: toem(10);
+                padding-bottom: toem(3);
+                color:#56585a;
+
+                @include tabletH {
+                    margin-bottom: toem(15);
+                    font-size: toem(20);
+                }
+                
+                hr {
+                    height: 3px;
+                    width: 25px;
+                    position: absolute;
+                    bottom: -3px;
+                    left: 0;
+                    border: 0;
+                }
+            }
+        }
+
+        .lista-icones {
+            margin: 20px 0px 10px;
+            @include tabletH {
+                margin: 5px 0px;
+            }
+
+            li {
+                @include inline-block;
+                margin: 0 2%;
+                width: 19%;
+
+                @include tabletH {
+                }
+
+                img {
+                    max-width: 35px;
+
+                    @include tabletH {
+                        max-width: 30px;
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+
+.lancamento {
+    .evolucao .titulo h4:before, .bg-evolucao, .lista-tags li, .btn, .h-linha:after, .slick-dots .slick-active, .localizacao:after, .icon-mais, &.detalhe .diferenciais .lista-icones li .tooltip-dif, .localizacao-imovel .abas-local .h-tab.ativo, &.imovel .data-expiracao, .txt-de:after {
+        background: $lancamento;
+    }
+
+    .fachada {
+        border-color: $lancamento;
+    }
+
+    &.detalhe .diferenciais .lista-icones li .imagem-dif:before, .img-mapa {
+        border-bottom-color: $lancamento;
+    }
+
+    &.titulo.item:hover, &.titulo.item.active, .btn-mais, .txt-imovel a, &.pg-detalhe-imovel .botoes-mobile .titulo-aba i, .plantas .slide-grande .slick-prev:before, .banners .slick-prev:before, .plantas .slide-grande .slick-next:before, .banners .slick-next:before, .list_lojas .item .item_infos li a:hover, &.imovel .item-oferta, &.filtro-active, &.detalhe .videos .slide-video .item .hover-video {
+        color: $lancamento;
+    }
+
+    .item .hover, .hover-video:hover, .youtube_video:hover .play {
+        background: rgba(246,143,57,0.8);
+    }
+
+    .slide-grande, .slide-video .slick-list, .mapa-local, .aerea .item a, .ilustrativo .item a {
+        box-shadow: 9px 10px 0px 0 $lancamento;
+    }
+
+    .img-imovel .distancia {
+        border-bottom: $laranja 3px solid;
+    }
+    .img-imovel .distancia span {
+        background: $lancamento;
+    }
+}
+
+.pre-lancamento {
+    .evolucao .titulo h4:before, .bg-evolucao, .lista-tags li, .btn, .h-linha:after, .slick-dots .slick-active, .localizacao:after, .icon-mais, &.detalhe .diferenciais .lista-icones li .tooltip-dif, .localizacao-imovel .abas-local .h-tab.ativo, &.imovel .data-expiracao, .txt-de:after {
+        background: $pre-lancamento;
+    }
+
+    .fachada {
+        border-color: $pre-lancamento;
+    }
+
+    &.detalhe .diferenciais .lista-icones li .imagem-dif:before , .img-mapa {
+        border-bottom-color: $pre-lancamento;
+    }
+
+    &.titulo.item:hover, &.titulo.item.active, .btn-mais, .txt-imovel a, &.pg-detalhe-imovel .botoes-mobile .titulo-aba i, .plantas .slide-grande .slick-prev:before, .banners .slick-prev:before, .plantas .slide-grande .slick-next:before, .banners .slick-next:before, .list_lojas .item .item_infos li a:hover, &.imovel .item-oferta, .abas &.filtro-active, &.detalhe .videos .slide-video .item .hover-video {
+        color: $pre-lancamento;
+    }
+
+    .item .hover, .hover-video:hover, .youtube_video:hover .play {
+        background: rgba(0,201,151,0.8);
+    }
+
+    .slide-grande, .slide-video .slick-list, .mapa-local, .aerea .item a, .ilustrativo .item a {
+        box-shadow: 9px 10px 0px 0 $pre-lancamento;
+    }
+
+    .img-imovel .distancia {
+        border-bottom: $pre-lancamento 3px solid;
+    }
+    .img-imovel .distancia span {
+        background: $pre-lancamento;
+    }
+    // .btns .btn.preco {
+    //     background: $pre-lancamento !important;
+    //     &::before {
+    //         content:"";
+    //         position: absolute;
+    //         bottom: 0;
+    //         right: 0; 
+    //         border-bottom: 0px solid #04926f;
+    //         border-left: 39px solid transparent;
+    //         border-top: 74px solid transparent;
+    //         border-right: 120px solid #04926f;
+    //         z-index: 3;
+    //     }
+    // }
+}
+
+.prontos, .pronto {
+     .bg-evolucao{
+        background:#FB595C;
+    }
+    
+    .evolucao .titulo h4:before,  .lista-tags li, .btn, .h-linha:after, .slick-dots .slick-active, .localizacao:after, .icon-mais, &.detalhe .diferenciais .lista-icones li .tooltip-dif, .localizacao-imovel .abas-local .h-tab.ativo, &.imovel .data-expiracao, .txt-de:after {
+        background: $pronto;
+    }
+
+    .fachada {
+        border-color: $pronto;
+    }
+
+    &.detalhe .diferenciais .lista-icones li .imagem-dif:before , .img-mapa {
+        border-bottom-color: $pronto;
+    }
+
+    &.titulo.item:hover, &.titulo.item.active, .btn-mais, .txt-imovel a, &.pg-detalhe-imovel .botoes-mobile .titulo-aba i, .plantas .slide-grande .slick-prev:before, .banners .slick-prev:before, .plantas .slide-grande .slick-next:before, .banners .slick-next:before, .list_lojas .item .item_infos li a:hover, &.imovel .item-oferta, &.filtro-active, &.detalhe .videos .slide-video .item .hover-video {
+        color: $pronto;
+    }
+
+    .item .hover, .hover-video:hover, .youtube_video:hover .play {
+        background: rgba(202,0,53,0.7);
+    }
+
+    .slide-grande, .slide-video .slick-list, .mapa-local, .aerea .item a, .ilustrativo .item a {
+        box-shadow: 9px 10px 0px 0 $pronto;
+    }
+
+    .img-imovel .distancia {
+        border-bottom: $pronto 3px solid;
+    }
+    .img-imovel .distancia span {
+        background: $pronto;
+    }
+}
+
+.ofertas {
+    .evolucao .titulo h4:before, .bg-evolucao, .lista-tags li, .btn, .h-linha:after, .slick-dots .slick-active, .localizacao:after, .icon-mais, &.detalhe .diferenciais .lista-icones li .tooltip-dif, .localizacao-imovel .abas-local .h-tab.ativo, &.imovel .data-expiracao, .txt-de:after {
+        background: $oferta;
+    }
+
+    .fachada {
+        border-color: $oferta;
+    }
+
+    &.titulo.item:hover, &.titulo.item.active, .btn-mais, .txt-imovel a, &.pg-detalhe-imovel .botoes-mobile .titulo-aba i, .plantas .slide-grande .slick-prev:before, .banners .slick-prev:before, .plantas .slide-grande .slick-next:before, .banners .slick-next:before, .list_lojas .item .item_infos li a:hover, &.imovel .item-oferta, &.filtro-active, &.detalhe .videos .slide-video .item .hover-video {
+        color: $oferta;
+    }
+
+    &.detalhe .diferenciais .lista-icones li .imagem-dif:before , .img-mapa {
+        border-bottom-color: $oferta;
+    }
+
+    .item .hover, .hover-video:hover, .youtube_video:hover .play {
+        background: rgba(255,204,0,0.8);
+    }
+
+    .slide-grande, .slide-video .slick-list, .mapa-local, .aerea .item a, .ilustrativo .item a {
+        box-shadow: 9px 10px 0px 0 $oferta;
+    }
+
+    .img-imovel .distancia {
+        border-bottom: $oferta 3px solid;
+    }
+    .img-imovel .distancia span {
+        background: $oferta;
+    }
+}
+
+.em-construcao {
+    .evolucao .titulo h4:before, .bg-evolucao, .lista-tags li, .btn, .h-linha:after, .slick-dots .slick-active, .localizacao:after, .icon-mais, &.detalhe .diferenciais .lista-icones li .tooltip-dif, .localizacao-imovel .abas-local .h-tab.ativo, &.imovel .data-expiracao, .txt-de:after {
+        background: $em-construcao;
+    }
+
+    .fachada {
+        border-color: $em-construcao;
+    }
+
+    &.detalhe .diferenciais .lista-icones li .imagem-dif:before , .img-mapa {
+        border-bottom-color: $em-construcao;
+    }
+
+
+    &.titulo.item:hover, &.titulo.item.active, .btn-mais, .txt-imovel a, &.pg-detalhe-imovel .botoes-mobile .titulo-aba i, .plantas .slide-grande .slick-prev:before, .banners .slick-prev:before, .plantas .slide-grande .slick-next:before, .banners .slick-next:before, .list_lojas .item .item_infos li a:hover, &.imovel .item-oferta, &.filtro-active, &.detalhe .videos .slide-video .item .hover-video {
+        color: $em-construcao;
+    }
+
+    .item .hover, .hover-video:hover, .youtube_video:hover .play {
+        background: rgba(90,157,249,0.8);
+    }
+
+    .slide-grande, .slide-video .slick-list, .mapa-local, .aerea .item a, .ilustrativo .item a {
+        box-shadow: 9px 10px 0px 0 $em-construcao;
+    }
+
+    .img-imovel .distancia {
+        border-bottom: $em-construcao 3px solid;
+    }
+    .img-imovel .distancia span {
+        background: $em-construcao;
+    }
+}

@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-col size="3">
+      <ion-back-button class="back-button" text="" (click)="voltar()"></ion-back-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-img class="logoMRV" src="assets/imagens/logo-mrv.png" (click)="home()"></ion-img>
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-buttons class="nav-button right">
+        <ion-menu-button class="icon-navbar" slot="end"></ion-menu-button>
+      </ion-buttons>
+    </ion-col>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="financiamento">
+
+    <ion-row>
+      <ion-img src="assets/imagens/financiamento.jpg" alt="banner"></ion-img>
+    </ion-row>
+
+    <ion-row class="intro">
+      <h1 class="h-linha laranja">
+        financiamento
+      </h1>
+      <div class="txt-site">
+        <p>
+          A MRV oferece as melhores opções de financiamento no mercado para atender as diferentes realidades dos
+          brasileiros. E se você acha que financiamentos são processos confusos e difíceis, não se preocupe.A gente vai
+          deixar tudo mais simples e fácil para você realizar seu sonho!
+        </p>
+        <p>
+          Aqui, te ajudamos a alcançar seu objetivo, seja ele o primeiro apê, um novo lar com localização privilegiada e
+          estrutura completa ou seu novo investimento com excelente retorno.
+        </p>
+      </div>
+    </ion-row>
+
+    <ion-row class="btn-links">
+      <div class="btn" (click)="Documentacao()">
+        <ion-icon class="icone" src="assets/icons/documentos.svg"></ion-icon>Documentos necessários
+      </div>
+      <div class="btn" (click)="Simulacao()">
+        <ion-icon class="icone" src="assets/icons/subsidio-01.svg"></ion-icon>Simulação do subsídio
+      </div>
+    </ion-row>
+
+    <section class="pensando-em-vc" padding>
+      <h3>Facilidades em comprar seu MRV</h3>
+      <div class="txt-site">
+        <p>
+          Veja só quantas facilidades para comprar o seu apê:<br>
+        </p>
+        <ul>
+          <li>
+            Entrada em até 60 vezes.
+          </li>
+          <li>
+            As melhores opções de financiamento para você comprar seu primeiro imóvel.
+          </li>
+          <li>
+            Condições exclusivas para conquistar o sonho do seu novo lar ou realizar um investimento com excelente
+            retorno.
+          </li>
+          <li>
+            E muito mais flexibilidade para você comprar o seu apê!
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <ion-col size="12">
+      <ion-list id="accordion" class="accordion" lines="none" detail="false" no-padding>
+
+        <div tappable class="item" *ngFor="let financiamento of financiamentos; let i = index;" id="{{i}}">
+
+          <ion-item (click)="toggleSection(i)">
+            <ion-label>
+              <h3 class="h-linha laranja">
+                {{financiamento.Nome}}
+              </h3>
+            </ion-label>
+            <ion-icon class="seta-right" slot="end" name="add"></ion-icon>
+            <ion-icon class="seta-down" slot="end" name="remove"></ion-icon>
+          </ion-item>
+
+          <div class="content">
+            <div class="txt-site">
+              <ion-img class="img" src="{{financiamento?.Logos[0]?.url}}"></ion-img>
+              <p>
+                {{financiamento.Descricao}}
+              </p>
+            </div>
+            <a class="btn" href="{{financiamento.Url}}" title="Saiba mais"
+              (click)="Rastreamento(financiamento.Nome)">Saiba mais</a>
+          </div>
+
+        </div>
+
+      </ion-list>
+    </ion-col>
+
+  </section>
+</ion-content>

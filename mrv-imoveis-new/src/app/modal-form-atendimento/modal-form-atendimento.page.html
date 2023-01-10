@@ -1,0 +1,71 @@
+<ion-content padding>
+  <div class="topo">
+    <ion-icon class="close" name="close" (click)="fechaModal()" *ngIf="!controleInterna"></ion-icon>
+
+    <div class="chat-imovel" *ngIf="controleInterna">
+      <ion-icon class="close" name="close" (click)="fechaModal()"></ion-icon>
+      <div class="bg-imovel" id="bgCapa">
+        <span class="sombra"></span>
+        <div class="logo">
+          <ion-img src="{{logo}}" alt="logo Empreendimento"></ion-img>
+        </div>
+        <ion-img class="img-imovel" src="assets/imagens/imovel.png" alt="Chat Imóvel"></ion-img>
+      </div>
+    </div>
+
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="atendimento">
+          <div class="titulo">
+            <h2 class="h-linha laranja">
+              Converse com um atendente
+            </h2>
+          </div>
+          <div class="txt-site">
+            <p>
+              Fale com nossos atendentes sobre os imóveis à venda, consulte valores. Faça uma simulação de financiamento
+              ou agende uma visita.
+            </p>
+          </div>
+        </div>
+
+        <div class="form form-atendimento">
+          <div class="input">
+            <ion-input id="user_nome" required inputmode="text" [(ngModel)]="user_nome" placeholder="Nome"></ion-input>
+          </div>
+          <div class="input">
+            <ion-input id="user_email" required inputmode="email" [(ngModel)]="user_email" placeholder="E-mail" (ionInput)="changeEmail($event.target.value)"></ion-input>
+          </div>
+          <div class="input">
+            <ion-input id="user_ddd" required inputmode="tel" max="4" [(ngModel)]="user_ddd" placeholder="DDD" (ionInput)="changeDDD($event.target.value)" maxlength="2" [brmasker]="{ mask: '00' }"></ion-input>
+            <ion-input id="user_telefone" required inputmode="tel" max="9" [(ngModel)]="user_telefone" placeholder="Telefone" [brmasker]="{ phoneNotDDD: true }" (ionInput)="changeTelefone($event.target.value)">
+            </ion-input>
+          </div>
+          <div class="input">
+            <ion-label class="label">Estado:</ion-label>
+            <ion-select id="user_estado" [selectedText]="estadoSelecionado?.nome" class="select" value="" ok-text="ok" name="estadoSelecionado" cancel-text="cancelar" [(ngModel)]="estadoSelecionado" (ionCancel)="LimparCampoEstado()" (ionChange)="carregaCidade()">
+              <ion-select-option [value]="estado" *ngFor="let estado of estados">{{estado.nome}}</ion-select-option>
+            </ion-select>
+          </div>
+          <div class="input">
+            <ion-label class="label">Cidade:</ion-label>
+            <ion-select id="user_cidade" [selectedText]="cidadeSelecionada?.nome" class="select" value="" ok-text="ok" name="cidadeSelecionada" cancel-text="cancelar" [(ngModel)]="cidadeSelecionada" (ionCancel)="LimparCampoCidade()" >
+              <ion-select-option [value]="cidade" *ngFor="let cidade of cidades" >{{cidade.nome}}</ion-select-option>
+            </ion-select>
+          </div>
+          <div class="input check">
+            <ion-checkbox checked="false" slot="start" id="termo" (click)="verificandoCheck()" [(ngModel)]="checkTermos"></ion-checkbox>
+            <span class="link" slot="end" (click)="termo()">Aceito receber contato da MRV, de acordo com a política de
+              privacidade</span>
+          </div>
+          <!-- <ion-button id="enviaFormAtendimento" [disabled]="!validacao" class="enviar" (click)="enviar()" expand="full">Entrar -->
+            <ion-button id="enviaFormAtendimento" [disabled]="!user_nome || !user_email || !user_ddd || user_ddd.toString().length < 2 || !user_telefone || user_telefone.toString().length < 9 || !estadoSelecionado || !cidadeSelecionada || !checkTermos" class="enviar" (click)="enviar()" expand="full">Entrar
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
